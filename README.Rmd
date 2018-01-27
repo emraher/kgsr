@@ -1,0 +1,60 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r options, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+# kgsr
+
+[![Build Status](https://travis-ci.org/emraher/kgsr.svg?branch=master)](https://travis-ci.org/emraher/kgsr)
+[![Coverage status](https://codecov.io/gh/emraher/kgsr/branch/master/graph/badge.svg)](https://codecov.io/github/emraher/kgsr?branch=master)
+[![Coverage status](https://coveralls.io/repos/github/emraher/kgsr/badge.svg)](https://coveralls.io/r/emraher/kgsr?branch=master)
+[![AppVeyor Build Status](https://ci.appveyor.com/emraher/kgsr)](https://ci.appveyor.com/api/projects/status/github//emraher/kgsr/?branch=master&svg=true)
+[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+
+## Disclaimer
+
+This software is in no way affiliated, endorsed, or approved by the [Kansas Geological Survey - The University of Kansas](http://www.kgs.ku.edu/). It comes with absolutely no warranty.
+
+## Overview
+
+`kgsr` is an R "interface" to KGS. It can download data from [Kansas Master Ground-Water Well Inventory](http://hercules.kgs.ku.edu/geohydro/master_well/index.cfm).
+
+## Installation
+
+You can install `kgsr` from github with:
+
+```{r gh-installation, eval = FALSE}
+# install.packages("devtools")
+devtools::install_github("emraher/kgsr")
+```
+## Usage 
+
+There is only one function in the package which retrieves data from KGS Kansas Master Ground-Water Well Inventory.
+
+```{r usage, eval = TRUE, warning=TRUE, error=TRUE, message=TRUE}
+library(kgsr)
+dt <- mwi("allen")
+dt
+
+# -----------------------------------------------------------------------------
+# Ignoring unmatched file
+# -----------------------------------------------------------------------------
+dt <- mwi("Cowley")
+dt
+
+# -----------------------------------------------------------------------------
+# Wrong county name
+# -----------------------------------------------------------------------------
+dt <- mwi("alen")
+```
+## Code of Conduct
+Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.

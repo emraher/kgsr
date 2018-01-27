@@ -1,0 +1,18 @@
+Package: kgsr
+Version: 0.0.0.9000
+Title: Downloads data from KGS
+Description: Downloads data from KGS.
+Authors@R: person("Emrah", "Er", email = "eer@eremrah.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-9909-7479"))
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+ByteCompile: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.0.1
+Imports: 
+    httr,
+    magrittr,
+    readr,
+    rvest
+Suggests: 
+    testthat
