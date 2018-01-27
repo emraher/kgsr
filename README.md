@@ -6,7 +6,12 @@
 [![Build
 Status](https://travis-ci.org/emraher/kgsr.svg?branch=master)](https://travis-ci.org/emraher/kgsr)
 [![Coverage
-Status](https://coveralls.io/repos/github/emraher/kgsr/badge.svg?branch=master)](https://coveralls.io/github/emraher/kgsr?branch=master)
+status](https://codecov.io/gh/emraher/kgsr/branch/master/graph/badge.svg)](https://codecov.io/github/emraher/kgsr?branch=master)
+[![Coverage
+status](https://coveralls.io/repos/github/emraher/kgsr/badge.svg)](https://coveralls.io/r/emraher/kgsr?branch=master)
+[![AppVeyor Build
+Status](https://ci.appveyor.com/emraher/kgsr)](https://ci.appveyor.com/api/projects/status/github//emraher/kgsr/?branch=master&svg=true)
+[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
 ## Disclaimer
 
@@ -98,3 +103,9 @@ dt
 dt <- mwi("alen")
 #> Error in mwi("alen"): There is no county in KS named "alen".
 ```
+
+## Code of Conduct
+
+Please note that this project is released with a [Contributor Code of
+Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree
+to abide by its terms.
