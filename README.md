@@ -6,11 +6,7 @@
 [![Build
 Status](https://travis-ci.org/emraher/kgsr.svg?branch=master)](https://travis-ci.org/emraher/kgsr)
 [![Coverage
-status](https://codecov.io/gh/emraher/kgsr/branch/master/graph/badge.svg)](https://codecov.io/github/emraher/kgsr?branch=master)
-[![Coverage
 status](https://coveralls.io/repos/github/emraher/kgsr/badge.svg)](https://coveralls.io/r/emraher/kgsr?branch=master)
-[![AppVeyor Build
-Status](https://ci.appveyor.com/emraher/kgsr)](https://ci.appveyor.com/api/projects/status/github//emraher/kgsr/?branch=master&svg=true)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
 ## Disclaimer
