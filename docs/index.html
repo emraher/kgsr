@@ -210,25 +210,47 @@
 <a href="#download-data-from-master-list-of-oil-and-gas-wells-in-kansas" class="anchor"></a>Download data from <a href="http://www.kgs.ku.edu/Magellan/Qualified/index.html">Master List of Oil and Gas Wells in Kansas</a>
 </h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">library</span>(kgsr)</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">dt &lt;-<span class="st"> </span><span class="kw"><a href="reference/ogw.html">ogw</a></span>(<span class="dt">township =</span> <span class="st">"1"</span>, <span class="dt">range =</span> <span class="st">"1"</span>, <span class="dt">range_dir =</span> <span class="st">"W"</span>, <span class="dt">section =</span> <span class="st">"1"</span>, <span class="dt">welltype =</span> <span class="st">"OIL"</span>)</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">#&gt; Error: 'NA' does not exist in current working directory ('/Volumes/Dropbox/Dropbox/gitRepos/kgsr/docs').</span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">dt</a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt; # A tibble: 3 x 31</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt;     WELL_KID LATITUDE LONGITUDE LAT_LONG_DATUM LAT_LONG_SOURCE COUNTY_CODE</span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt;        &lt;int&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;                 &lt;int&gt;</span></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt; 1 1043457740     40.0     -97.4 NAD83          LEO                     157</span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt; 2 1043457742     40.0     -97.4 NAD83          LEO                     157</span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt; 3 1043457741     40.0     -97.4 NAD83          LEO                     157</span></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt; # ... with 25 more variables: TOWNSHIP &lt;int&gt;, TOWNSHIP_DIRECTION &lt;chr&gt;,</span></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt; #   RANGE &lt;int&gt;, RANGE_DIRECTION &lt;chr&gt;, SECTION &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt; #   SUBDIVISION_1_LARGEST &lt;chr&gt;, SUBDIVISION_2 &lt;chr&gt;, SUBDIVISION_3 &lt;chr&gt;,</span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt; #   SUBDIVISION_4_SMALLEST &lt;chr&gt;, ELEVATION_SURFACE &lt;chr&gt;,</span></a>
-<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">#&gt; #   ELEVATION_SURFACE_DATUM &lt;chr&gt;, ELEVATION_SURFACE_SOURCE &lt;chr&gt;,</span></a>
-<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co">#&gt; #   ELEVATION_SURFACE_NED &lt;int&gt;, ELEVATION_SURFACE_NED_DATUM &lt;chr&gt;,</span></a>
-<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">#&gt; #   COMPLETION_DATE &lt;dttm&gt;, WELL_DEPTH &lt;int&gt;, USES_OF_WATER &lt;chr&gt;,</span></a>
-<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">#&gt; #   NAD27_LATITUDE &lt;dbl&gt;, NAD27_LONGITUDE &lt;dbl&gt;, NAD83_LATITUDE &lt;dbl&gt;,</span></a>
-<a class="sourceLine" id="cb3-19" data-line-number="19"><span class="co">#&gt; #   NAD83_LONGITUDE &lt;dbl&gt;, WWC5_INPUT_SEQ_NUMBERS &lt;int&gt;, WRIS_PDIV_ID</span></a>
-<a class="sourceLine" id="cb3-20" data-line-number="20"><span class="co">#&gt; #   &lt;chr&gt;, WIZARD_USGS_ID &lt;chr&gt;, WELL_STATUS &lt;chr&gt;</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-2" data-line-number="2">dt &lt;-<span class="st"> </span><span class="kw"><a href="reference/ogw.html">ogw</a></span>(<span class="dt">township =</span> <span class="st">"1"</span>, <span class="dt">range =</span> <span class="st">"1"</span>)</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">dt</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt; # A tibble: 2 x 40</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt;       KID API_NUMBER API_NUM_NODASH LEASE   WELL FIELD  LATITUDE LONGITUDE</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt;     &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;          &lt;chr&gt;  &lt;int&gt; &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt; 1  1.01e⁹ &lt;NA&gt;       &lt;NA&gt;           QMB2 …    NA UNKNO…     NA        NA  </span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt; 2  1.03e⁹ &lt;NA&gt;       &lt;NA&gt;           BOOMH…     1 HINEM…     40.0     -97.4</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt; # ... with 32 more variables: LONG_LAT_SOURCE &lt;chr&gt;, TOWNSHIP &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt; #   TWN_DIR &lt;chr&gt;, RANGE &lt;int&gt;, RANGE_DIR &lt;chr&gt;, SECTION &lt;int&gt;, SPOT</span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt; #   &lt;chr&gt;, FEET_NORTH &lt;chr&gt;, FEET_EAST &lt;chr&gt;, FOOT_REF &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt; #   ORIG_OPERATOR &lt;chr&gt;, CURR_OPERATOR &lt;chr&gt;, ELEVATION &lt;int&gt;, ELEV_REF</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt; #   &lt;chr&gt;, DEPTH &lt;chr&gt;, PRODUCE_FORM &lt;chr&gt;, IP_OIL &lt;chr&gt;, IP_GAS &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt; #   IP_WATER &lt;chr&gt;, PERMIT &lt;chr&gt;, SPUD &lt;chr&gt;, COMPLETION &lt;chr&gt;, PLUGGING</span></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">#&gt; #   &lt;chr&gt;, MODIFIED &lt;chr&gt;, OIL_KID &lt;chr&gt;, OIL_DOR_ID &lt;chr&gt;, GAS_KID &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co">#&gt; #   GAS_DOR_ID &lt;chr&gt;, KCC_DOCKET &lt;chr&gt;, STATUS &lt;chr&gt;, STATUS2 &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">#&gt; #   COMMENTS &lt;chr&gt;</span></a>
+<a class="sourceLine" id="cb3-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb3-19" data-line-number="19">dt &lt;-<span class="st"> </span><span class="kw"><a href="reference/ogw.html">ogw</a></span>(<span class="dt">county =</span> <span class="st">"allen"</span>, <span class="dt">welltype =</span> <span class="st">"OIL"</span>)</a>
+<a class="sourceLine" id="cb3-20" data-line-number="20">dt</a>
+<a class="sourceLine" id="cb3-21" data-line-number="21"><span class="co">#&gt; # A tibble: 10,560 x 40</span></a>
+<a class="sourceLine" id="cb3-22" data-line-number="22"><span class="co">#&gt;        KID API_NUMBER  API_NUM_NODASH LEASE WELL  FIELD LATITUDE LONGITUDE</span></a>
+<a class="sourceLine" id="cb3-23" data-line-number="23"><span class="co">#&gt;      &lt;int&gt; &lt;chr&gt;                &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb3-24" data-line-number="24"><span class="co">#&gt;  1  1.01e⁹ &lt;NA&gt;                    NA BURT… 22    &lt;NA&gt;      37.8     -95.5</span></a>
+<a class="sourceLine" id="cb3-25" data-line-number="25"><span class="co">#&gt;  2  1.01e⁹ &lt;NA&gt;                    NA BURT… 16    &lt;NA&gt;      37.8     -95.5</span></a>
+<a class="sourceLine" id="cb3-26" data-line-number="26"><span class="co">#&gt;  3  1.01e⁹ &lt;NA&gt;                    NA BURT… 9     &lt;NA&gt;      37.8     -95.5</span></a>
+<a class="sourceLine" id="cb3-27" data-line-number="27"><span class="co">#&gt;  4  1.01e⁹ &lt;NA&gt;                    NA BURT… 19    &lt;NA&gt;      37.8     -95.5</span></a>
+<a class="sourceLine" id="cb3-28" data-line-number="28"><span class="co">#&gt;  5  1.01e⁹ &lt;NA&gt;                    NA BURT… 2     &lt;NA&gt;      37.8     -95.5</span></a>
+<a class="sourceLine" id="cb3-29" data-line-number="29"><span class="co">#&gt;  6  1.01e⁹ &lt;NA&gt;                    NA BURT… 27    &lt;NA&gt;      37.8     -95.5</span></a>
+<a class="sourceLine" id="cb3-30" data-line-number="30"><span class="co">#&gt;  7  1.01e⁹ &lt;NA&gt;                    NA BURT… 25    &lt;NA&gt;      37.8     -95.5</span></a>
+<a class="sourceLine" id="cb3-31" data-line-number="31"><span class="co">#&gt;  8  1.01e⁹ &lt;NA&gt;                    NA BURT… 5     &lt;NA&gt;      37.8     -95.5</span></a>
+<a class="sourceLine" id="cb3-32" data-line-number="32"><span class="co">#&gt;  9  1.01e⁹ &lt;NA&gt;                    NA BURT… 1     &lt;NA&gt;      37.8     -95.5</span></a>
+<a class="sourceLine" id="cb3-33" data-line-number="33"><span class="co">#&gt; 10  1.01e⁹ 15-001-727… 15001727610000 MONA… OW-4  &lt;NA&gt;      37.8     -95.4</span></a>
+<a class="sourceLine" id="cb3-34" data-line-number="34"><span class="co">#&gt; # ... with 10,550 more rows, and 32 more variables: LONG_LAT_SOURCE &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb3-35" data-line-number="35"><span class="co">#&gt; #   TOWNSHIP &lt;int&gt;, TWN_DIR &lt;chr&gt;, RANGE &lt;int&gt;, RANGE_DIR &lt;chr&gt;, SECTION</span></a>
+<a class="sourceLine" id="cb3-36" data-line-number="36"><span class="co">#&gt; #   &lt;int&gt;, SPOT &lt;chr&gt;, FEET_NORTH &lt;int&gt;, FEET_EAST &lt;int&gt;, FOOT_REF &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb3-37" data-line-number="37"><span class="co">#&gt; #   ORIG_OPERATOR &lt;chr&gt;, CURR_OPERATOR &lt;chr&gt;, ELEVATION &lt;dbl&gt;, ELEV_REF</span></a>
+<a class="sourceLine" id="cb3-38" data-line-number="38"><span class="co">#&gt; #   &lt;chr&gt;, DEPTH &lt;int&gt;, PRODUCE_FORM &lt;chr&gt;, IP_OIL &lt;dbl&gt;, IP_GAS &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb3-39" data-line-number="39"><span class="co">#&gt; #   IP_WATER &lt;dbl&gt;, PERMIT &lt;chr&gt;, SPUD &lt;chr&gt;, COMPLETION &lt;chr&gt;, PLUGGING</span></a>
+<a class="sourceLine" id="cb3-40" data-line-number="40"><span class="co">#&gt; #   &lt;chr&gt;, MODIFIED &lt;chr&gt;, OIL_KID &lt;int&gt;, OIL_DOR_ID &lt;int&gt;, GAS_KID &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb3-41" data-line-number="41"><span class="co">#&gt; #   GAS_DOR_ID &lt;int&gt;, KCC_DOCKET &lt;chr&gt;, STATUS &lt;chr&gt;, STATUS2 &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb3-42" data-line-number="42"><span class="co">#&gt; #   COMMENTS &lt;chr&gt;</span></a></code></pre></div>
 </div>
 </div>
 <div id="code-of-conduct" class="section level2">

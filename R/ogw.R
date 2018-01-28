@@ -20,7 +20,7 @@
 #' \dontrun{ogw(township = "1", range = "1", range_dir = "W", section = "1")}
 #'
 #' @export
-ogw <- function(township  = NULL, range  = NULL, range_dir = "W", section = NULL, lease  = NULL, operator  = NULL, state  = "kansas", county  = "any county", api  = NULL, welltype = "ALL", all = FALSE){
+ogw <- function(township  = NULL, range  = NULL, range_dir = "W", section = NULL, lease  = NULL, operator  = NULL, state  = "kansas", county  = "any county", api  = NULL, welltype = "ALL", all = FALSE) {
   if (all == TRUE || is.null(c(township, range, section, lease, operator, api)) && county == "any county" && welltype == "ALL") {
     # SEE: https://stackoverflow.com/a/3053883
     # SEE: https://stackoverflow.com/users/143305/dirk-eddelbuettel
@@ -30,7 +30,7 @@ ogw <- function(township  = NULL, range  = NULL, range_dir = "W", section = NULL
     unlink(temp)
   }
 
-  url <- "http://www.kgs.ku.edu/Magellan/Qualified/index.html"
+  url <- "http://chasm.kgs.ku.edu/ords/qualified.ogw5.SelectWells"
   form <- rvest::html_form(xml2::read_html(url))[[1]]
 
   if (!(range_dir %in% c("W", "E"))) stop('Range direction must be either "W" or "E".')
@@ -53,30 +53,32 @@ ogw <- function(township  = NULL, range  = NULL, range_dir = "W", section = NULL
   state <- states[[state]]
 
   # TODO: Need to check if api provided is numeric!----
-  if (!is.null(api) && nchar(api) > 5) stop('API Well No. is the 5-digit well number.')
+  if (!is.null(api) && nchar(api) > 5) stop("API Well No. is the 5-digit well number.")
 
   county <- tolower(county)
   counties <- form$fields$f_c$options
-  names(counties) <- tolower(gsub("--[0-9]+","",names(form$fields$f_c$options)))
+  names(counties) <- tolower(gsub("--[0-9]+", "", names(form$fields$f_c$options)))
   if (!(county %in% names(counties))) stop(paste0('There is no county in KS named "', county, '".'))
   county <- counties[[county]]
 
   if (!(welltype %in% trimws(form$fields$f_ws$options))) stop(paste0('There is no well type with code "', welltype, '".'))
 
-  if ((!is.null(lease) && nchar(lease) > 50)) stop(paste0('Lease can have maximum 50 characters!'))
-  if ((!is.null(operator) && nchar(operator) > 50)) stop(paste0('Operator can have maximum 50 characters!'))
+  if ((!is.null(lease) && nchar(lease) > 50)) stop(paste0("Lease can have maximum 50 characters!"))
+  if ((!is.null(operator) && nchar(operator) > 50)) stop(paste0("Operator can have maximum 50 characters!"))
 
 
-  fd <- list(f_t   = township,
-             f_r   = range,
-             ew    = range_dir,
-             f_s   = section,
-             f_l   = lease,
-             f_o   = operator,
-             f_st  = state,
-             f_c   = county,
-             f_api = api,
-             f_ws  = welltype)
+  fd <- list(
+    f_t = township,
+    f_r = range,
+    ew = range_dir,
+    f_s = section,
+    f_l = lease,
+    f_o = operator,
+    f_st = state,
+    f_c = county,
+    f_api = api,
+    f_ws = welltype
+  )
 
   kgs.resp <- httr::POST(url, body = fd)
 
@@ -94,5 +96,4 @@ ogw <- function(township  = NULL, range  = NULL, range_dir = "W", section = NULL
     rvest::html_attr("href")
 
   dt <- readr::read_csv(dp.link, col_types = readr::cols(), guess_max = 15000)
-
-  }
+}

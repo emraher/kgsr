@@ -41,8 +41,8 @@ mwi <- function(county, unmatched = FALSE) {
       }
       dt <- data.table::rbindlist(dt.list) %>% tibble::as.tibble()
     } else {
-    message("There are unmatched records, ignoring them! You can set 'unmatched = TRUE' if you also want that data.")
-    dt <- readr::read_csv(dt.links[1], col_types = readr::cols())
+      message("There are unmatched records, ignoring them! You can set 'unmatched = TRUE' if you also want that data.")
+      dt <- readr::read_csv(dt.links[1], col_types = readr::cols())
     }
   }
 }
