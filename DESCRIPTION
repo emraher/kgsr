@@ -1,5 +1,5 @@
 Package: kgsr
-Version: 0.0.0.9000
+Version: 0.0.0.9001
 Title: Downloads data from KGS
 Description: Downloads data from KGS.
 Authors@R: person("Emrah", "Er", email = "eer@eremrah.com", role = c("aut", "cre"))
