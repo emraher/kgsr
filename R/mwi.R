@@ -1,17 +1,17 @@
-#' Download county data from KGS Kansas Master Ground-Water Well Inventory
+#' Download data from KGS Kansas Master Ground-Water Well Inventory by choosing county
 #'
 #' @param county County Name
+#' @param unmatched Option for downloading unmatched data
 #'
 #' @return
 #' Tibble data
-#'
 #'
 #' @examples
 #' # Download data for given county
 #' \dontrun{mwi("allen")}
 #'
 #' @export
-mwi <- function(county) {
+mwi <- function(county, unmatched = FALSE) {
   url <- "http://hercules.kgs.ku.edu/geohydro/master_well/index.cfm"
 
   kgs <- httr::GET(url)
@@ -34,7 +34,15 @@ mwi <- function(county) {
   if (length(dt.links) == 1) {
     dt <- readr::read_csv(dt.links, col_types = readr::cols())
   } else {
-    message("There are unmatched records, ignoring them!")
+    if (unmatched == TRUE) {
+      dt.list <- list()
+      for (i in 1:length(dt.links)) {
+        dt.list[[i]] <- readr::read_csv(dt.links[i], col_types = readr::cols())
+      }
+      dt <- data.table::rbindlist(dt.list) %>% tibble::as.tibble()
+    } else {
+    message("There are unmatched records, ignoring them! You can set 'unmatched = TRUE' if you also want that data.")
     dt <- readr::read_csv(dt.links[1], col_types = readr::cols())
+    }
   }
 }

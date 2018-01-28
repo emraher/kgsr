@@ -36,7 +36,7 @@ devtools::install_github("emraher/kgsr")
 ```
 ## Usage 
 
-There is only one function in the package which retrieves data from KGS Kansas Master Ground-Water Well Inventory.
+There are two functions in the package which retrieves data from KGS Kansas Master Ground-Water Well Inventory.
 
 ```{r usage, eval = TRUE, warning=TRUE, error=TRUE, message=TRUE}
 library(kgsr)
@@ -53,6 +53,13 @@ dt
 # Wrong county name
 # -----------------------------------------------------------------------------
 dt <- mwi("alen")
+
+# -----------------------------------------------------------------------------
+# Download with given township, range, range direction, and section (optional).
+# -----------------------------------------------------------------------------
+dt <- mwi_plss(township = "1", range = "1", range_dir = "W", section = "1", unmatched = TRUE)
+dt
 ```
+
 ## Code of Conduct
 Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.

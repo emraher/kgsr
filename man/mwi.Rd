@@ -2,18 +2,20 @@
 % Please edit documentation in R/mwi.R
 \name{mwi}
 \alias{mwi}
-\title{Download county data from KGS Kansas Master Ground-Water Well Inventory}
+\title{Download data from KGS Kansas Master Ground-Water Well Inventory by choosing county}
 \usage{
-mwi(county)
+mwi(county, unmatched = FALSE)
 }
 \arguments{
 \item{county}{County Name}
+
+\item{unmatched}{Option for downloading unmatched data}
 }
 \value{
 Tibble data
 }
 \description{
-Download county data from KGS Kansas Master Ground-Water Well Inventory
+Download data from KGS Kansas Master Ground-Water Well Inventory by choosing county
 }
 \examples{
 # Download data for given county
