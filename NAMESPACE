@@ -3,4 +3,5 @@
 export("%>%")
 export(mwi)
 export(mwi_plss)
+export(ogw)
 importFrom(magrittr,"%>%")

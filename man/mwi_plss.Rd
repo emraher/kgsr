@@ -4,7 +4,7 @@
 \alias{mwi_plss}
 \title{Download data from KGS Kansas Master Ground-Water Well Inventory by choosing township, section, range}
 \usage{
-mwi_plss(township, range, range_dir, section = NULL, unmatched = FALSE)
+mwi_plss(township, range, range_dir, section = "0", unmatched = FALSE)
 }
 \arguments{
 \item{township}{Township}

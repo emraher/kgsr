@@ -22,9 +22,12 @@ knitr::opts_chunk$set(
 
 This software is in no way affiliated, endorsed, or approved by the [Kansas Geological Survey - The University of Kansas](http://www.kgs.ku.edu/). It comes with absolutely no warranty.
 
+
 ## Overview
 
-`kgsr` is an R "interface" to KGS. It can download data from [Kansas Master Ground-Water Well Inventory](http://hercules.kgs.ku.edu/geohydro/master_well/index.cfm).
+`kgsr` is an R "interface" to KGS. It can download data from [Kansas Geological Survey - The University of Kansas](http://www.kgs.ku.edu/).
+
+
 
 ## Installation
 
@@ -34,11 +37,29 @@ You can install `kgsr` from github with:
 # install.packages("devtools")
 devtools::install_github("emraher/kgsr")
 ```
+
+## Data on KGS
+
+* [Water](http://www.kgs.ku.edu/Hydro/hydroIndex.html)
+    * [Kansas Master Ground-Water Well Inventory](http://hercules.kgs.ku.edu/geohydro/master_well/index.cfm)
+* [Energy](http://www.kgs.ku.edu/PRS/petroIndex.html)
+    * [State Production and Historical Info](http://www.kgs.ku.edu/PRS/petro/state.html)
+    * [County Production](http://www.kgs.ku.edu/PRS/petro/interactive.html)
+    * [Production from Kansas Oil and Gas Fields](http://www.kgs.ku.edu/Magellan/Field/index.html)
+    * [Gas Storage Fields in Kansas](http://chasm.kgs.ku.edu/ords/oil.ogf4.GasStorage)
+    * [Production from Kansas Oil and Gas Leases](http://www.kgs.ku.edu/Magellan/Field/lease.html)
+    * [Kansas Oil and Gas Production by Operator](http://www.kgs.ku.edu/Magellan/Field/operators.html)
+    * [Master List of Oil and Gas Wells in Kansas](http://www.kgs.ku.edu/Magellan/Qualified/index.html)
+* [Geology](http://www.kgs.ku.edu/General/geologyIndex.html)
+* [Geophysics](http://www.kgs.ku.edu/Geophysics/esIndex.html)
+
 ## Usage 
 
-There are two functions in the package which retrieves data from KGS Kansas Master Ground-Water Well Inventory.
+### Download data from [Kansas Master Ground-Water Well Inventory](http://hercules.kgs.ku.edu/geohydro/master_well/index.cfm)
 
-```{r usage, eval = TRUE, warning=TRUE, error=TRUE, message=TRUE}
+There are two functions in the package which retrieve data from Kansas Master Ground-Water Well Inventory.
+
+```{r water, eval = TRUE, warning=TRUE, error=TRUE, message=TRUE, cache=TRUE}
 library(kgsr)
 dt <- mwi("allen")
 dt
@@ -58,6 +79,16 @@ dt <- mwi("alen")
 # Download with given township, range, range direction, and section (optional).
 # -----------------------------------------------------------------------------
 dt <- mwi_plss(township = "1", range = "1", range_dir = "W", section = "1", unmatched = TRUE)
+dt
+```
+
+### Download data from [Master List of Oil and Gas Wells in Kansas](http://www.kgs.ku.edu/Magellan/Qualified/index.html)
+```{r energy, eval = TRUE, warning=TRUE, error=TRUE, message=TRUE, cache=TRUE}
+library(kgsr)
+dt <- ogw(township = "1", range = "1")
+dt
+
+dt <- ogw(county = "allen", welltype = "OIL")
 dt
 ```
 

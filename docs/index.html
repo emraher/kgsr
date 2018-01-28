@@ -77,7 +77,7 @@
 <div id="overview" class="section level2">
 <h2 class="hasAnchor">
 <a href="#overview" class="anchor"></a>Overview</h2>
-<p><code>kgsr</code> is an R “interface” to KGS. It can download data from <a href="http://hercules.kgs.ku.edu/geohydro/master_well/index.cfm">Kansas Master Ground-Water Well Inventory</a>.</p>
+<p><code>kgsr</code> is an R “interface” to KGS. It can download data from <a href="http://www.kgs.ku.edu/">Kansas Geological Survey - The University of Kansas</a>.</p>
 </div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
@@ -86,10 +86,40 @@
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># install.packages("devtools")</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"emraher/kgsr"</span>)</a></code></pre></div>
 </div>
+<div id="data-on-kgs" class="section level2">
+<h2 class="hasAnchor">
+<a href="#data-on-kgs" class="anchor"></a>Data on KGS</h2>
+<ul>
+<li>
+<a href="http://www.kgs.ku.edu/Hydro/hydroIndex.html">Water</a>
+<ul>
+<li><a href="http://hercules.kgs.ku.edu/geohydro/master_well/index.cfm">Kansas Master Ground-Water Well Inventory</a></li>
+</ul>
+</li>
+<li>
+<a href="http://www.kgs.ku.edu/PRS/petroIndex.html">Energy</a>
+<ul>
+<li><a href="http://www.kgs.ku.edu/PRS/petro/state.html">State Production and Historical Info</a></li>
+<li><a href="http://www.kgs.ku.edu/PRS/petro/interactive.html">County Production</a></li>
+<li><a href="http://www.kgs.ku.edu/Magellan/Field/index.html">Production from Kansas Oil and Gas Fields</a></li>
+<li><a href="http://chasm.kgs.ku.edu/ords/oil.ogf4.GasStorage">Gas Storage Fields in Kansas</a></li>
+<li><a href="http://www.kgs.ku.edu/Magellan/Field/lease.html">Production from Kansas Oil and Gas Leases</a></li>
+<li><a href="http://www.kgs.ku.edu/Magellan/Field/operators.html">Kansas Oil and Gas Production by Operator</a></li>
+<li><a href="http://www.kgs.ku.edu/Magellan/Qualified/index.html">Master List of Oil and Gas Wells in Kansas</a></li>
+</ul>
+</li>
+<li><a href="http://www.kgs.ku.edu/General/geologyIndex.html">Geology</a></li>
+<li><a href="http://www.kgs.ku.edu/Geophysics/esIndex.html">Geophysics</a></li>
+</ul>
+</div>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
-<p>There are two functions in the package which retrieves data from KGS Kansas Master Ground-Water Well Inventory.</p>
+<div id="download-data-from-kansas-master-ground-water-well-inventory" class="section level3">
+<h3 class="hasAnchor">
+<a href="#download-data-from-kansas-master-ground-water-well-inventory" class="anchor"></a>Download data from <a href="http://hercules.kgs.ku.edu/geohydro/master_well/index.cfm">Kansas Master Ground-Water Well Inventory</a>
+</h3>
+<p>There are two functions in the package which retrieve data from Kansas Master Ground-Water Well Inventory.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(kgsr)</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2">dt &lt;-<span class="st"> </span><span class="kw"><a href="reference/mwi.html">mwi</a></span>(<span class="st">"allen"</span>)</a>
 <a class="sourceLine" id="cb2-3" data-line-number="3">dt</a>
@@ -174,6 +204,32 @@
 <a class="sourceLine" id="cb2-82" data-line-number="82"><span class="co">#&gt; #   NAD27_LATITUDE &lt;dbl&gt;, NAD27_LONGITUDE &lt;dbl&gt;, NAD83_LATITUDE &lt;dbl&gt;,</span></a>
 <a class="sourceLine" id="cb2-83" data-line-number="83"><span class="co">#&gt; #   NAD83_LONGITUDE &lt;dbl&gt;, WWC5_INPUT_SEQ_NUMBERS &lt;int&gt;, WRIS_PDIV_ID</span></a>
 <a class="sourceLine" id="cb2-84" data-line-number="84"><span class="co">#&gt; #   &lt;chr&gt;, WIZARD_USGS_ID &lt;chr&gt;, WELL_STATUS &lt;chr&gt;</span></a></code></pre></div>
+</div>
+<div id="download-data-from-master-list-of-oil-and-gas-wells-in-kansas" class="section level3">
+<h3 class="hasAnchor">
+<a href="#download-data-from-master-list-of-oil-and-gas-wells-in-kansas" class="anchor"></a>Download data from <a href="http://www.kgs.ku.edu/Magellan/Qualified/index.html">Master List of Oil and Gas Wells in Kansas</a>
+</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">library</span>(kgsr)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">dt &lt;-<span class="st"> </span><span class="kw"><a href="reference/ogw.html">ogw</a></span>(<span class="dt">township =</span> <span class="st">"1"</span>, <span class="dt">range =</span> <span class="st">"1"</span>, <span class="dt">range_dir =</span> <span class="st">"W"</span>, <span class="dt">section =</span> <span class="st">"1"</span>, <span class="dt">welltype =</span> <span class="st">"OIL"</span>)</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">#&gt; Error: 'NA' does not exist in current working directory ('/Volumes/Dropbox/Dropbox/gitRepos/kgsr/docs').</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">dt</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt; # A tibble: 3 x 31</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt;     WELL_KID LATITUDE LONGITUDE LAT_LONG_DATUM LAT_LONG_SOURCE COUNTY_CODE</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt;        &lt;int&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;                 &lt;int&gt;</span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt; 1 1043457740     40.0     -97.4 NAD83          LEO                     157</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt; 2 1043457742     40.0     -97.4 NAD83          LEO                     157</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt; 3 1043457741     40.0     -97.4 NAD83          LEO                     157</span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt; # ... with 25 more variables: TOWNSHIP &lt;int&gt;, TOWNSHIP_DIRECTION &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt; #   RANGE &lt;int&gt;, RANGE_DIRECTION &lt;chr&gt;, SECTION &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt; #   SUBDIVISION_1_LARGEST &lt;chr&gt;, SUBDIVISION_2 &lt;chr&gt;, SUBDIVISION_3 &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt; #   SUBDIVISION_4_SMALLEST &lt;chr&gt;, ELEVATION_SURFACE &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">#&gt; #   ELEVATION_SURFACE_DATUM &lt;chr&gt;, ELEVATION_SURFACE_SOURCE &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co">#&gt; #   ELEVATION_SURFACE_NED &lt;int&gt;, ELEVATION_SURFACE_NED_DATUM &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">#&gt; #   COMPLETION_DATE &lt;dttm&gt;, WELL_DEPTH &lt;int&gt;, USES_OF_WATER &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">#&gt; #   NAD27_LATITUDE &lt;dbl&gt;, NAD27_LONGITUDE &lt;dbl&gt;, NAD83_LATITUDE &lt;dbl&gt;,</span></a>
+<a class="sourceLine" id="cb3-19" data-line-number="19"><span class="co">#&gt; #   NAD83_LONGITUDE &lt;dbl&gt;, WWC5_INPUT_SEQ_NUMBERS &lt;int&gt;, WRIS_PDIV_ID</span></a>
+<a class="sourceLine" id="cb3-20" data-line-number="20"><span class="co">#&gt; #   &lt;chr&gt;, WIZARD_USGS_ID &lt;chr&gt;, WELL_STATUS &lt;chr&gt;</span></a></code></pre></div>
+</div>
 </div>
 <div id="code-of-conduct" class="section level2">
 <h2 class="hasAnchor">

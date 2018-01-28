@@ -14,7 +14,7 @@
 #' \dontrun{mwi_plss(township = "1", range = "1", range_dir = "W", section = "1", unmatched = TRUE)}
 #'
 #' @export
-mwi_plss <- function(township, range, range_dir, section = NULL, unmatched = FALSE) {
+mwi_plss <- function(township, range, range_dir, section = "0", unmatched = FALSE) {
   url <- "http://hercules.kgs.ku.edu/geohydro/master_well/index.cfm"
 
   form <- rvest::html_form(xml2::read_html(url))[[1]]
@@ -43,11 +43,8 @@ mwi_plss <- function(township, range, range_dir, section = NULL, unmatched = FAL
   # sections.code   <- sections %>% rvest::html_attr("value")
   # if (!(section %in% sections.code)) stop(paste0('There is no section in KS with code "', section, '".'))
   #
-  if (is.null(section)) {
-    fd <- list(f_twp = township, f_rng = range, f_rngdir = range_dir, f_sect = "0", theButton = "Select by PLSS")
-  } else {
-    fd <- list(f_twp = township, f_rng = range, f_rngdir = range_dir, f_sect = section, theButton = "Select by PLSS")
-  }
+
+  fd <- list(f_twp = township, f_rng = range, f_rngdir = range_dir, f_sect = section, theButton = "Select by PLSS")
 
   kgs.resp <- httr::POST(url, body = fd, encode = "multipart")
 

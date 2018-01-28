@@ -16,6 +16,7 @@ Imports:
     readr,
     rvest,
     tibble,
+    utils,
     xml2
 Suggests: 
     testthat,
