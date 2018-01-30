@@ -1,64 +1,73 @@
----
-output: github_document
----
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-
-
 # kgsr
-[![Project Status: WIP - Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip)
+
+[![Project Status: WIP - Initial development is in progress, but there
+has not yet been a stable, usable release suitable for the
+public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![Linux Build Status](https://travis-ci.org/emraher/kgsr.svg?branch=master)](https://travis-ci.org/emraher/kgsr)
-[![Windows Build status](https://ci.appveyor.com/api/projects/status/4ejevtp69fcrr31o?svg=true)](https://ci.appveyor.com/project/emraher/kgsr)
+[![Linux Build
+Status](https://travis-ci.org/emraher/kgsr.svg?branch=master)](https://travis-ci.org/emraher/kgsr)
+[![Windows Build
+status](https://ci.appveyor.com/api/projects/status/4ejevtp69fcrr31o?svg=true)](https://ci.appveyor.com/project/emraher/kgsr)
 [![](http://www.r-pkg.org/badges/version/kgsr)](http://www.r-pkg.org/pkg/kgsr)
-[![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/kgsr)](http://www.r-pkg.org/pkg/kgsr)
-[![Coverage status](https://coveralls.io/repos/github/emraher/kgsr/badge.svg)](https://coveralls.io/r/emraher/kgsr?branch=master)
+[![CRAN RStudio mirror
+downloads](http://cranlogs.r-pkg.org/badges/kgsr)](http://www.r-pkg.org/pkg/kgsr)
+[![Coverage
+status](https://coveralls.io/repos/github/emraher/kgsr/badge.svg)](https://coveralls.io/r/emraher/kgsr?branch=master)
 
 ## Disclaimer
 
-This software is in no way affiliated, endorsed, or approved by the [Kansas Geological Survey - The University of Kansas](http://www.kgs.ku.edu/). It comes with absolutely no warranty.
-
+This software is in no way affiliated, endorsed, or approved by the
+[Kansas Geological Survey - The University of
+Kansas](http://www.kgs.ku.edu/). It comes with absolutely no warranty.
 
 ## Overview
 
-`kgsr` is an R "interface" to KGS. It can download data from [Kansas Geological Survey - The University of Kansas](http://www.kgs.ku.edu/).
-
-
+`kgsr` is an R “interface” to KGS. It can download data from [Kansas
+Geological Survey - The University of Kansas](http://www.kgs.ku.edu/).
 
 ## Installation
 
 You can install `kgsr` from github with:
 
-
-```r
+``` r
 # install.packages("devtools")
 devtools::install_github("emraher/kgsr")
 ```
 
 ## Data on KGS
 
-* [Water](http://www.kgs.ku.edu/Hydro/hydroIndex.html)
-    * [Kansas Master Ground-Water Well Inventory](http://hercules.kgs.ku.edu/geohydro/master_well/index.cfm)
-* [Energy](http://www.kgs.ku.edu/PRS/petroIndex.html)
-    * [State Production and Historical Info](http://www.kgs.ku.edu/PRS/petro/state.html)
-    * [County Production](http://www.kgs.ku.edu/PRS/petro/interactive.html)
-    * [Production from Kansas Oil and Gas Fields](http://www.kgs.ku.edu/Magellan/Field/index.html)
-    * [Gas Storage Fields in Kansas](http://chasm.kgs.ku.edu/ords/oil.ogf4.GasStorage)
-    * [Production from Kansas Oil and Gas Leases](http://www.kgs.ku.edu/Magellan/Field/lease.html)
-    * [Kansas Oil and Gas Production by Operator](http://www.kgs.ku.edu/Magellan/Field/operators.html)
-    * [Master List of Oil and Gas Wells in Kansas](http://www.kgs.ku.edu/Magellan/Qualified/index.html)
-* [Geology](http://www.kgs.ku.edu/General/geologyIndex.html)
-* [Geophysics](http://www.kgs.ku.edu/Geophysics/esIndex.html)
+  - [Water](http://www.kgs.ku.edu/Hydro/hydroIndex.html)
+      - [Kansas Master Ground-Water Well
+        Inventory](http://hercules.kgs.ku.edu/geohydro/master_well/index.cfm)
+  - [Energy](http://www.kgs.ku.edu/PRS/petroIndex.html)
+      - [State Production and Historical
+        Info](http://www.kgs.ku.edu/PRS/petro/state.html)
+      - [County
+        Production](http://www.kgs.ku.edu/PRS/petro/interactive.html)
+      - [Production from Kansas Oil and Gas
+        Fields](http://www.kgs.ku.edu/Magellan/Field/index.html)
+      - [Gas Storage Fields in
+        Kansas](http://chasm.kgs.ku.edu/ords/oil.ogf4.GasStorage)
+      - [Production from Kansas Oil and Gas
+        Leases](http://www.kgs.ku.edu/Magellan/Field/lease.html)
+      - [Kansas Oil and Gas Production by
+        Operator](http://www.kgs.ku.edu/Magellan/Field/operators.html)
+      - [Master List of Oil and Gas Wells in
+        Kansas](http://www.kgs.ku.edu/Magellan/Qualified/index.html)
+  - [Geology](http://www.kgs.ku.edu/General/geologyIndex.html)
+  - [Geophysics](http://www.kgs.ku.edu/Geophysics/esIndex.html)
 
-## Usage 
+## Usage
 
 ### Download data from [Kansas Master Ground-Water Well Inventory](http://hercules.kgs.ku.edu/geohydro/master_well/index.cfm)
 
-There are two functions in the package which retrieve data from Kansas Master Ground-Water Well Inventory.
+There are two functions in the package which retrieve data from Kansas
+Master Ground-Water Well Inventory.
 
-
-```r
+``` r
 library(kgsr)
 dt <- mwi("allen")
 dt
@@ -149,7 +158,7 @@ dt
 
 ### Download data from [Master List of Oil and Gas Wells in Kansas](http://www.kgs.ku.edu/Magellan/Qualified/index.html)
 
-```r
+``` r
 library(kgsr)
 dt <- ogw(township = "1", range = "1")
 dt
@@ -195,4 +204,7 @@ dt
 ```
 
 ## Code of Conduct
-Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+
+Please note that this project is released with a [Contributor Code of
+Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree
+to abide by its terms.
