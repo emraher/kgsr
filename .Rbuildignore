@@ -13,6 +13,7 @@
 ^codemeta\.json$
 ^mytests$
 ^revdep$
+^cache$
 ^ropensci-issue\.md$
 ^docs$
 ^LICENSE\.md$
