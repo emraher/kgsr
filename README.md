@@ -15,7 +15,7 @@ status](https://ci.appveyor.com/api/projects/status/4ejevtp69fcrr31o?svg=true)](
 [![CRAN RStudio mirror
 downloads](http://cranlogs.r-pkg.org/badges/kgsr)](http://www.r-pkg.org/pkg/kgsr)
 [![Coverage
-status](https://coveralls.io/repos/github/emraher/kgsr/badge.svg)](https://coveralls.io/r/emraher/kgsr?branch=master)
+status](https://codecov.io/gh/emraher/kgsr/branch/master/graph/badge.svg)](https://codecov.io/github/emraher/kgsr?branch=master)
 
 ## Disclaimer
 
